@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="worker.name" placeholder="Ismi" />
+      <input type="number" v-model="worker.age" placeholder="Yoshi" />
+      <select v-model="worker.department">
+        <option v-for="department, index of departmentList" :value="index">
+          {{department}}
+        </option>
+      </select>
+      <button @click="add()">Kiritish</button>
+      <hr />
+      <table border="1" width="100%">
+        <td>
+          <h2>Barcha xodimlar soni: {{persons.length}}</h2>
+        </td>
+        <td>
+          <h2>Dasturlash Xodimlar: {{dasturlashXodimlar}}ta</h2>
+        </td>
+        <td>
+          <h2>Dizayn Xodimlar: {{dizaynXodimlar}}</h2>
+        </td>
+        <td>
+          <h2>Marketing Xodimlar: {{marketingXodimlar}}</h2>
+        </td>
+      </table>
+      <table border="1" width="100%" v-show="persons.length >0">
+        <thead>
+          <th>N</th>
+          <th>Ismi</th>
+          <th>Yoshi</th>
+          <th>Bo'limi</th>
+        </thead>
+        <tbody>
+          <tr v-for="person, index of persons">
+            <td>{{index+1}}</td>
+            <td>{{person.name}}</td>
+            <td>{{person.age}}</td>
+            <td>{{departmentList[person.department]}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
