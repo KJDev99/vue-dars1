@@ -30,7 +30,10 @@
           <h2>Marketing Xodimlar: {{marketingXodimlar}}</h2>
         </td>
       </table>
-      <table border="1" width="100%" v-show="persons.length >0">
+      <p></p>
+      <input type="text" v-model="search" placeholder="qidiruv">
+      <p></p>
+      <table border="1" width="100%" v-show="newPersons.length >0">
         <thead>
           <th>N</th>
           <th>Ismi</th>
@@ -38,7 +41,7 @@
           <th>Bo'limi</th>
         </thead>
         <tbody>
-          <tr v-for="person, index of persons">
+          <tr v-for="person, index of newPersons">
             <td>{{index+1}}</td>
             <td>{{person.name}}</td>
             <td>{{person.age}}</td>

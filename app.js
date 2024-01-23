@@ -4,6 +4,7 @@ const vm = Vue.createApp({
       worker: {},
       persons: [],
       departmentList: ["Dasturlash", "Dizayn", "Marketin"],
+      search: "",
     };
   },
   methods: {
@@ -24,6 +25,12 @@ const vm = Vue.createApp({
     },
     marketingXodimlar() {
       return this.persons.filter((person) => person.department == 2).length;
+    },
+    newPersons() {
+      return this.persons.filter(
+        (person) =>
+          person.name.toLowerCase().indexOf(this.search.toLowerCase()) != -1
+      );
     },
   },
 });
